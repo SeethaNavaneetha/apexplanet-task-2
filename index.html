@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task 2 – Contact Form & To-Do</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- NAVBAR (Flexbox) -->
+  <header class="nav">
+    <div class="brand">ApexPlanet • Task 2</div>
+    <nav class="menu">
+      <a href="#contact">Contact</a>
+      <a href="#todo">To-Do</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <!-- MAIN (CSS Grid) -->
+  <main class="container grid">
+    <!-- Contact Form -->
+    <section id="contact" class="card">
+      <h2>Contact Form</h2>
+      <p class="muted">HTML + CSS + JS validation</p>
+
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name <span class="req">*</span></label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+          <small class="error" data-error-for="name"></small>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <small class="error" data-error-for="email"></small>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Say hello..."></textarea>
+          <small class="error" data-error-for="message"></small>
+        </div>
+
+        <button type="submit" class="btn">Send</button>
+        <p id="formSuccess" class="success" hidden>✅ Thanks! Form looks good.</p>
+      </form>
+    </section>
+
+    <!-- To-Do List -->
+    <section id="todo" class="card">
+      <h2>To-Do List</h2>
+      <p class="muted">DOM add/remove/toggle</p>
+
+      <div class="todo-input">
+        <input id="todoInput" type="text" placeholder="Add a task…" />
+        <button id="addTodo" class="btn">Add</button>
+      </div>
+
+      <ul id="todoList" class="todo-list">
+        <!-- Items will be added here -->
+      </ul>
+    </section>
+  </main>
+
+  <footer id="about" class="footer">
+    <p>Built with HTML, CSS (Flexbox/Grid), and JavaScript. Responsive with media queries.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
