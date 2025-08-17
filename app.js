@@ -11,7 +11,6 @@ function setError(inputEl, msg){
 }
 
 function isEmail(value){
-  // simple, friendly email check
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
@@ -19,37 +18,39 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   let ok = true;
-  // Name required
+
+  // Name check
   if(!nameInput.value.trim()){
     setError(nameInput, 'Name is required.');
     ok = false;
   } else setError(nameInput, '');
 
-  // Email required + format
+  // Email check
   const email = emailInput.value.trim();
   if(!email){
     setError(emailInput, 'Email is required.');
     ok = false;
   } else if(!isEmail(email)){
-    setError(emailInput, 'Please enter a valid email address.');
+    setError(emailInput, 'Please enter a valid email.');
     ok = false;
   } else setError(emailInput, '');
 
-  // Message optional; example rule: max 500 chars
+  // Message optional
   if(messageInput.value.length > 500){
     setError(messageInput, 'Message must be under 500 characters.');
     ok = false;
   } else setError(messageInput, '');
 
+  // ✅ If form is valid
   if(ok){
     successMsg.hidden = false;
+    successMsg.textContent = "✅ Successfully submitted!";
     form.reset();
-    // Hide success after 3s
     setTimeout(() => successMsg.hidden = true, 3000);
   }
 });
 
-// ---------- To-Do List (DOM) ----------
+// ---------- To-Do List ----------
 const todoInput = document.getElementById('todoInput');
 const addBtn = document.getElementById('addTodo');
 const list = document.getElementById('todoList');
@@ -74,9 +75,7 @@ function addTodo(text){
   const delBtn = document.createElement('button');
   delBtn.className = 'icon-btn';
   delBtn.textContent = 'Delete';
-  delBtn.addEventListener('click', () => {
-    li.remove();
-  });
+  delBtn.addEventListener('click', () => li.remove());
 
   actions.append(toggleBtn, delBtn);
   li.append(span, actions);
@@ -91,7 +90,5 @@ addBtn.addEventListener('click', () => {
 });
 
 todoInput.addEventListener('keydown', (e) => {
-  if(e.key === 'Enter'){
-    addBtn.click();
-  }
+  if(e.key === 'Enter') addBtn.click();
 });
