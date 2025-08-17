@@ -24,28 +24,29 @@
       <h2>Contact Form</h2>
       <p class="muted">HTML + CSS + JS validation</p>
 
-      <form id="contactForm" novalidate>
-        <div class="field">
-          <label for="name">Name <span class="req">*</span></label>
-          <input id="name" name="name" type="text" placeholder="Your name" required />
-          <small class="error" data-error-for="name"></small>
-        </div>
+      <form id="contactForm" novalidate autocomplete="off">
+  <div class="field">
+    <label for="name">Name <span class="req">*</span></label>
+    <input id="name" name="name" type="text" placeholder="Your name" required autocomplete="off" />
+    <small class="error" data-error-for="name"></small>
+  </div>
 
-        <div class="field">
-          <label for="email">Email <span class="req">*</span></label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-          <small class="error" data-error-for="email"></small>
-        </div>
+  <div class="field">
+    <label for="email">Email <span class="req">*</span></label>
+    <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="off" required  />
+    <small class="error" data-error-for="email"></small>
+  </div>
 
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Say hello..."></textarea>
-          <small class="error" data-error-for="message"></small>
-        </div>
+  <div class="field">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" placeholder="Say hello..." autocomplete="off"></textarea>
+    <small class="error" data-error-for="message"></small>
+  </div>
 
-        <button type="submit" class="btn">Send</button>
-        <p id="formSuccess" class="success" hidden>✅ Thanks! Form looks good.</p>
-      </form>
+  <button type="submit" class="btn">Send</button>
+  <p id="formSuccess" class="success" hidden>✅ Successfully submitted!</p>
+</form>
+
     </section>
 
     <!-- To-Do List -->
@@ -58,9 +59,7 @@
         <button id="addTodo" class="btn">Add</button>
       </div>
 
-      <ul id="todoList" class="todo-list">
-        <!-- Items will be added here -->
-      </ul>
+      <ul id="todoList" class="todo-list"></ul>
     </section>
   </main>
 
@@ -71,3 +70,6 @@
   <script src="app.js"></script>
 </body>
 </html>
+
+   
+  
